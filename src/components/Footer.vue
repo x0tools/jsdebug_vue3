@@ -1,6 +1,6 @@
 <template>
     <div class="footer">
-        我是脚标
+        Made with ❤️ by JsDebug
     </div>
 </template>
 <script>

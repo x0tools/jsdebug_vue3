@@ -33,6 +33,9 @@ export default {
   padding: 0;
   
 }
+body{
+  background-color: var(--el-bg-color);
+}
 .el-header{
   background-image: radial-gradient(transparent 1px,var(--el-bg-color) 1px);
   background-size: 4px 4px;
@@ -46,7 +49,6 @@ export default {
 }
 .el-main{
   padding: 70px 0 0 0;
-  background-color: var(--el-bg-color);
 }
 
 .testdiv{
