@@ -31,6 +31,7 @@ export default {
 * {
   margin: 0;
   padding: 0;
+  
 }
 .el-header{
   background-image: radial-gradient(transparent 1px,var(--el-bg-color) 1px);
@@ -41,9 +42,11 @@ export default {
   top: 0;
   width: 100%;
   padding: 0px;
+  
 }
 .el-main{
-  padding-top: 70px;
+  padding: 70px 0 0 0;
+  background-color: var(--el-bg-color);
 }
 
 .testdiv{
