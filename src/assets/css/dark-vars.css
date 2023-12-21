@@ -1,4 +1,14 @@
 html.dark {
-    /* 自定义深色背景颜色 */
-    --el-bg-color: #626aef;
-  }
+  /* 自定义深色背景颜色 */
+  --el-bg-color: #626aef;
+}
+body {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Chrome/Safari/Opera */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+ */
+  user-select: none; /* Standard syntax */
+}
+/* html {
+  -webkit-filter: grayscale(1);
+} */
