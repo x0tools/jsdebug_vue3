@@ -19,9 +19,9 @@ const routes = [
                 component: ()=>import(/*webpackChunkName:'home'*/ '../page/team.vue')
             },
             {
-                path:"/project",
-                name:"project",
-                component: ()=>import(/*webpackChunkName:'home'*/ '../page/project.vue')
+                path:"/toolsbook",
+                name:"toolsbook",
+                component: ()=>import(/*webpackChunkName:'home'*/ '../page/toolsbook copy.vue')
             },
             {
                 path:"/doc",

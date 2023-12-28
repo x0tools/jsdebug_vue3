@@ -15,9 +15,9 @@
                 团队介绍
             </h4>
         </el-menu-item>
-        <el-menu-item class="header-item" index="project">
+        <el-menu-item class="header-item" index="toolsbook">
             <h4 class="header-item-text">
-                开源项目
+                实用工具
             </h4>
         </el-menu-item>
         <el-menu-item class="header-item" index="doc">
@@ -40,13 +40,13 @@ export default {
     setup() {
         const router = useRouter();
         const activeIndex = ref('home')
-        const handleSelect =function( key, keyPath) {
-            if(key){
-                router.push({path:'/'+key})
+        const handleSelect = function (key, keyPath) {
+            if (key) {
+                router.push({ path: '/' + key })
             }
             console.log(key, keyPath)
         }
-        return { activeIndex,handleSelect }
+        return { activeIndex, handleSelect }
     }
 }
 </script>
@@ -55,13 +55,14 @@ export default {
     margin: 0;
     padding: 0;
 }
+
 .flex-grow {
     flex-grow: 1;
     outline: none;
 }
 
 .header-margin {
-    width: 10%;
+    width: 220px;
     outline: none;
 }
 
@@ -71,14 +72,16 @@ export default {
     --el-menu-active-color: #00000000;
     --el-menu-hover-bg-color: #00000000;
 }
+
 .logo-img {
     filter: drop-shadow(2px 2px 6px #409eff);
 }
+
 .header-item {
     --el-menu-hover-bg-color: #00000000;
 }
+
 .header-item-text {
     margin: 0px 20px 0px 20px;
-}
-</style>
+}</style>
   

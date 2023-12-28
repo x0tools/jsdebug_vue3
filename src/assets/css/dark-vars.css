@@ -1,14 +1,66 @@
+/* 全站变灰 */
+/* html {
+  -webkit-filter: grayscale(1);
+} */
+
+
 html.dark {
   /* 自定义深色背景颜色 */
   --el-bg-color: #626aef;
 }
 body {
+  min-height:100vh;
   -webkit-touch-callout: none; /* iOS Safari */
   -webkit-user-select: none; /* Chrome/Safari/Opera */
   -moz-user-select: none; /* Firefox */
   -ms-user-select: none; /* IE10+ */
   user-select: none; /* Standard syntax */
+  overflow-y:scroll;/* 始终显示滚动条防止抖动 */
 }
-/* html {
-  -webkit-filter: grayscale(1);
-} */
+
+/* 自定义滚动条样式 */
+ .dark ::-webkit-scrollbar-thumb {
+  background-color: #fff3; /* 设置为透明*/
+}
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #0003;/* 设置为透明*/
+  border-radius: 10px;
+  transition: all .2s ease-in-out;
+}
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+} 
+
+
+.el-main{
+  height: 100%;
+  --el-main-padding: 0px;
+}
+
+/* 添加响应式样式 calc*/
+:root{
+  --directory-scrollbar-padding-right: 190px;
+  --directory-page-content-padding-left:500px;
+  --directory-scrollbar-display:flex;
+}
+@media screen and (max-width: 1650px) {
+  :root{
+      --directory-scrollbar-padding-right: calc((100vw - 1650px) + 190px);
+  }
+}
+@media screen and (max-width: 1470px) {
+  :root{
+    --directory-scrollbar-padding-right:0px;
+    /* --directory-scrollbar-display:none; */
+  }
+}
+@media screen and (max-width: 970px) {
+  :root{
+    /* 隐藏右边目录 */
+    --directory-scrollbar-display:none; 
+  }
+}
+

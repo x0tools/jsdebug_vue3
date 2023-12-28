@@ -5,13 +5,15 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "team":"node ./ProcessingProgram/team.js",
+    "team": "node ./ProcessingProgram/team.js",
     "build": "vite build",
     "preview": "vite preview"
   },
   "dependencies": {
     "@element-plus/icons-vue": "^2.3.1",
+    "@kangc/v-md-editor": "^2.3.18",
     "element-plus": "^2.4.4",
+    "md-editor-v3": "^4.9.0",
     "vue": "^3.3.11",
     "vue-router": "^4.2.5"
   },

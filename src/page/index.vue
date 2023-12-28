@@ -4,13 +4,8 @@
       <el-header>
         <Header ></Header>
       </el-header>
-      <el-main>
-        <el-backtop :right="100" :bottom="100" />
         <router-view></router-view>
-      </el-main>
-      <el-footer>
-        <Footer></Footer>
-      </el-footer>
+     
     </el-container>
   </div>
 </template>
@@ -41,18 +36,18 @@ body{
   background-size: 4px 4px;
   backdrop-filter: saturate(50%) blur(4px);
   -webkit-backdrop-filter: saturate(50%) blur(4px);
-  position: fixed;
+  position: sticky;
   top: 0;
   width: 100%;
   padding: 0px;
-  
-}
-.el-main{
-  padding: 70px 0 0 0;
+  z-index: 100;
 }
 
-.testdiv{
-  width: 100%;;
-  height: 2000px;
+.el-footer {
+    --el-footer-padding: 0px;
+    --el-footer-height: 60px;
+    padding-top:20px;
+    margin-bottom: 40px;
 }
+
 </style>
