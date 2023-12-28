@@ -136,7 +136,7 @@ export default {
 }
 
 .hero {
-    padding: 56px 32px 70px 32px;
+    padding: 86px 32px 70px 32px;
     text-align: center;
 }
 

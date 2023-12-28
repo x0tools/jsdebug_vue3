@@ -21,7 +21,7 @@ const routes = [
             {
                 path:"/toolsbook",
                 name:"toolsbook",
-                component: ()=>import(/*webpackChunkName:'home'*/ '../page/toolsbook copy.vue')
+                component: ()=>import(/*webpackChunkName:'home'*/ '../page/toolsbook.vue')
             },
             {
                 path:"/doc",

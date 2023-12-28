@@ -44,11 +44,14 @@ body {
 :root{
   --directory-scrollbar-padding-right: 190px;
   --directory-page-content-padding-left:500px;
+  --directory-page-content-padding-right:300px;
+  --md-anchor-point-display:block;
   --directory-scrollbar-display:flex;
 }
-@media screen and (max-width: 1650px) {
+@media screen and (max-width: 1900px) and (min-width: 1470px){
   :root{
-      --directory-scrollbar-padding-right: calc((100vw - 1650px) + 190px);
+      --directory-scrollbar-padding-right: calc((100vw - 1900px) + 190px);
+      --directory-page-content-padding-left:calc((100vw - 1900px) + 500px)
   }
 }
 @media screen and (max-width: 1470px) {
@@ -57,10 +60,25 @@ body {
     /* --directory-scrollbar-display:none; */
   }
 }
-@media screen and (max-width: 970px) {
+@media screen and (max-width: 1700px) {
   :root{
-    /* 隐藏右边目录 */
+    --directory-page-content-padding-left:300px
+    /* --directory-scrollbar-display:none; */
+  }
+}
+@media screen and (max-width: 1350px) {
+  :root{
+    /* 隐藏左边目录 */
     --directory-scrollbar-display:none; 
+    --directory-page-content-padding-left:0px;
+    
+  }
+}
+@media screen and (max-width: 960px) {
+  /* 隐藏右边 */
+  :root{
+    --directory-page-content-padding-right:0px;
+    --md-anchor-point-display:none;
   }
 }
 
