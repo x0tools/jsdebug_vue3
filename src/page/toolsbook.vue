@@ -43,7 +43,7 @@ import 'md-editor-v3/lib/preview.css';
 import { getRelativeTop } from "../utils/utils.js";
 
 import mdtext_test from "../assets/book/toolsbook.md?raw"
-const aaaaa = import.meta.glob("../assets/book/tools/*.md", { as: 'raw' });
+const markDownTexts = import.meta.glob("../assets/book/tools/*/*.md", { as: 'raw' });
 const tools_directory_data = ref([]);
 const directory_radio = ref("");
 const anchor_list = ref([]);
@@ -58,7 +58,7 @@ export default {
     setup() {
 
         async function handleChange(value) {
-            let mddatap = await aaaaa[`../assets/book/tools/${value}`]();
+            let mddatap = await markDownTexts[`../assets/book/tools/${value}`]();
             mdtext.value = mddatap;
             console.log(value);
         }
@@ -146,16 +146,14 @@ export default {
         if (tools_data && tools_data.default) {
             tools_directory_data.value = tools_data.default;
             let mdfilename = tools_data?.default?.[0]?.mds?.[0]?.filename;
-            if (mdfilename) {
+            let mdrname = tools_data?.default?.[0]?.dirname;
+            if (mdfilename && mdrname) {
                 directory_radio.value = mdfilename;
-                let mddatap = await aaaaa[`../assets/book/tools/${mdfilename}`]();
+                let mddatap = await markDownTexts[`../assets/book/tools/${mdfilename}`]();
                 mdtext.value = mddatap;
 
             }
         }
-
-        //mdpreview
-
     }
 }
 </script>

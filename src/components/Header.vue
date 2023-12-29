@@ -44,7 +44,7 @@ export default {
             if (key) {
                 router.push({ path: '/' + key })
             }
-            console.log(key, keyPath)
+           
         }
         return { activeIndex, handleSelect }
     }
