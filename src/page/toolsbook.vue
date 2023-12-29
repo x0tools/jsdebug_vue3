@@ -10,65 +10,27 @@
                     <img class="img-sponsor" src="http://element-plus.org/images/vform-banner.png" alt="">
                 </a>
             </el-space>
-            <div class="directory-body">
-                <p style="margin-bottom: 11px;"><b>基础</b></p>
-                <el-radio-group class="radio-group-body" @change="handleChange" v-model="radio1" size="large">
-                    <el-radio-button class="radio-group-body-item" label="1">设计</el-radio-button>
-                    <el-radio-button class="radio-group-body-item" label="2">导航</el-radio-button>
-                    <el-radio-button class="radio-group-body-item" label="3">测试</el-radio-button>
-                </el-radio-group>
-            </div>
-            <div class="directory-body">
-                <p style="margin-bottom: 11px;"><b>进阶</b></p>
-                <el-radio-group class="radio-group-body" @change="handleChange" v-model="radio1" size="large">
-                    <el-radio-button class="radio-group-body-item" label="4">设计</el-radio-button>
-                    <el-radio-button class="radio-group-body-item" label="5">导航</el-radio-button>
-                    <el-radio-button class="radio-group-body-item" label="6">测试</el-radio-button>
-                </el-radio-group>
-            </div>
-            <div class="directory-body">
-                <p style="margin-bottom: 11px;"><b>进阶1</b></p>
-                <el-radio-group class="radio-group-body" @change="handleChange" v-model="radio1" size="large">
-                    <el-radio-button class="radio-group-body-item" label="7">设计1</el-radio-button>
-                    <el-radio-button class="radio-group-body-item" label="8">导航1</el-radio-button>
-                    <el-radio-button class="radio-group-body-item" label="9">测试1</el-radio-button>
-                </el-radio-group>
-            </div>
-            <div class="directory-body">
-                <p style="margin-bottom: 11px;"><b>进阶2</b></p>
-                <el-radio-group class="radio-group-body" @change="handleChange" v-model="radio1" size="large">
-                    <el-radio-button class="radio-group-body-item" label="10">设计2</el-radio-button>
-                    <el-radio-button class="radio-group-body-item" label="11">导航2</el-radio-button>
-                    <el-radio-button class="radio-group-body-item" label="12">测试2</el-radio-button>
-                </el-radio-group>
-            </div>
-            <div class="directory-body">
-                <p style="margin-bottom: 11px;"><b>进阶1</b></p>
-                <el-radio-group class="radio-group-body" @change="handleChange" v-model="radio1" size="large">
-                    <el-radio-button class="radio-group-body-item" label="71">设计1</el-radio-button>
-                    <el-radio-button class="radio-group-body-item" label="81">导航1</el-radio-button>
-                    <el-radio-button class="radio-group-body-item" label="91">测试1</el-radio-button>
-                </el-radio-group>
-            </div>
-            <div class="directory-body">
-                <p style="margin-bottom: 11px;"><b>进阶2</b></p>
-                <el-radio-group class="radio-group-body" @change="handleChange" v-model="radio1" size="large">
-                    <el-radio-button class="radio-group-body-item" label="101">设计2</el-radio-button>
-                    <el-radio-button class="radio-group-body-item" label="111">导航2</el-radio-button>
-                    <el-radio-button class="radio-group-body-item" label="121">测试2</el-radio-button>
+
+            <div v-for="diritem in tools_directory_data" class="directory-body">
+                <p style="margin-bottom: 11px;"><b>{{ diritem.dirname }}</b></p>
+                <el-radio-group class="radio-group-body" @change="handleChange" v-model="directory_radio" size="large">
+                    <el-radio-button v-for="md in diritem.mds" class="radio-group-body-item" :label="md.filename">{{
+                        md.title }}</el-radio-button>
                 </el-radio-group>
             </div>
         </el-space>
     </el-scrollbar>
     <el-main class="page-content">
-        <MdPreview :editorId="id" :modelValue="mdtext" theme="dark" codeTheme="github" previewTheme="default" />
+        <MdPreview ref="mdpreview" :modelValue="mdtext" theme="dark" codeTheme="github" previewTheme="default"
+            showCodeRowNumber="true" @onGetCatalog="onGetCatalog"  @onHtmlChanged="onHtmlChanged"/>
     </el-main>
 
     <div class="md-anchor-point">
         <el-scrollbar>
-            <el-radio-group class="radio-group-body" @change="handleChange" v-model="radio2" size="large">
-                <el-radio-button v-for="index in 10" class="radio-group-body-item"
-                    :label="index">设计{{ index }}</el-radio-button>
+            <el-radio-group class="radio-group-body" @change="onAnchorPointOnClick" v-model="anchor_radio" size="large">
+                <el-radio-button v-for="item in anchor_list" class="radio-group-body-item" :label="item">
+                    {{ item.innerText }}
+                </el-radio-button>
             </el-radio-group>
         </el-scrollbar>
     </div>
@@ -78,33 +40,84 @@
 import { ref, onMounted } from "vue";
 import { MdPreview, MdCatalog } from 'md-editor-v3';
 import 'md-editor-v3/lib/preview.css';
+import { getRelativeTop } from "../utils/utils.js";
+
 import mdtext_test from "../assets/book/toolsbook.md?raw"
-const md_preview = ref(null);
-const mdtext = ref(mdtext_test)
-const radio1 = ref("1");
-const radio2 = ref("1");
+const aaaaa = import.meta.glob("../assets/book/tools/*.md", { as: 'raw' });
+const tools_directory_data = ref([]);
+const directory_radio = ref("");
+const anchor_list = ref([]);
+const mdtext = ref("")
+const mdpreview = ref(null);
+const anchor_radio = ref({});
+
 
 export default {
     components: {
         MdPreview
     },
     setup() {
-        function handleChange(value) {
+
+        async function handleChange(value) {
+            let mddatap = await aaaaa[`../assets/book/tools/${value}`]();
+            mdtext.value = mddatap;
             console.log(value);
         }
-        return {
+        function onAnchorPointOnClick(item) {
+            let top_ = getRelativeTop(item)
+            document.documentElement.scrollTo({
+                top: top_ - 60,
+                behavior: 'smooth'
+            })
+        }
+        function onHtmlChanged(ht){
+            mdpreview.value.$nextTick(()=>{
+                anchor_list.value  = mdpreview.value.$el.querySelectorAll('h1,h2,h3,h4,h5,h6');
+            
+                
+            })
 
-            radio1,
-            radio2,
-            handleChange,
+        }
+        function onGetCatalog(catalog) {
+           
+            anchor_list.value = catalog;
+            if(catalog.length>0){
+                anchor_radio.value  = catalog[0];
+            }
+            
+            //{text: '工具的使用', level: 1}
+
+        }
+        return {
+            tools_directory_data,
+            directory_radio,
             mdtext,
-            md_preview
+            handleChange,
+            onGetCatalog,
+            onAnchorPointOnClick,
+            mdpreview,
+            anchor_list,
+            anchor_radio,
+            onHtmlChanged,
+
         }
     },
     async mounted() {
-        // let aaa = "../assets/book/"+"toolsbook"+".md?raw";
-        // const text = await import(aaa);
-        // mdtext.value = text.default;
+        
+        let tools_data = await import("../assets/book/tools/index.json");
+        if (tools_data && tools_data.default) {
+            tools_directory_data.value = tools_data.default;
+            let mdfilename = tools_data?.default?.[0]?.mds?.[0]?.filename;
+            if (mdfilename) {
+                directory_radio.value = mdfilename;
+                let mddatap = await aaaaa[`../assets/book/tools/${mdfilename}`]();
+                mdtext.value = mddatap;
+
+            }
+        }
+        
+        //mdpreview
+
     }
 }
 </script>
@@ -218,7 +231,7 @@ export default {
 .md-anchor-point {
     /* background-color: #409eff;  block*/
 
-    display: var(--md-anchor-point-display) ;
+    display: var(--md-anchor-point-display);
     position: fixed;
     top: 100px;
     bottom: 0px;
