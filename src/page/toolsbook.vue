@@ -22,7 +22,7 @@
     </el-scrollbar>
     <el-main class="page-content">
         <MdPreview ref="mdpreview" :modelValue="mdtext" theme="dark" codeTheme="github" previewTheme="default"
-            showCodeRowNumber="true" @onGetCatalog="onGetCatalog"  @onHtmlChanged="onHtmlChanged"/>
+            showCodeRowNumber="true" @onGetCatalog="onGetCatalog" @onHtmlChanged="onHtmlChanged" />
     </el-main>
 
     <div class="md-anchor-point">
@@ -51,7 +51,6 @@ const mdtext = ref("")
 const mdpreview = ref(null);
 const anchor_radio = ref({});
 
-
 export default {
     components: {
         MdPreview
@@ -70,23 +69,22 @@ export default {
                 behavior: 'smooth'
             })
         }
-        function onHtmlChanged(ht){
-            mdpreview.value.$nextTick(()=>{
-                anchor_list.value  = mdpreview.value.$el.querySelectorAll('h1,h2,h3,h4,h5,h6');
-            
+        function onHtmlChanged(ht) {
+            mdpreview.value.$nextTick(() => {
+                let nodelistdata = mdpreview.value.$el.querySelectorAll('h1,h2,h3,h4,h5,h6');
+                let ellistdata = [];
+                nodelistdata.forEach((x) => { ellistdata.push(x) })
+                anchor_list.value = ellistdata;
+                if(ellistdata.length > 0){
+                    anchor_radio.value = ellistdata[0]
+                }
                 
+
             })
 
         }
         function onGetCatalog(catalog) {
-           
-            anchor_list.value = catalog;
-            if(catalog.length>0){
-                anchor_radio.value  = catalog[0];
-            }
-            
-            //{text: '工具的使用', level: 1}
-
+  
         }
         return {
             tools_directory_data,
@@ -103,7 +101,47 @@ export default {
         }
     },
     async mounted() {
-        
+        function findActiveHeading(listdata) {
+          
+            if (listdata.length === 0) {
+                return false;
+            }
+            function isElementInViewport(el) {
+                let rect = el.getBoundingClientRect();
+                return (
+                    rect.bottom > 0 &&
+                    rect.right > 0 &&
+                    rect.top < (window.innerHeight || document.documentElement.clientHeight) &&
+                    rect.left < (window.innerWidth || document.documentElement.clientWidth)
+                );
+            }
+            let nonNegativeObjects = listdata.filter(obj => {
+                return isElementInViewport(obj)
+            });
+            let curranchor = nonNegativeObjects[0];
+            if (curranchor != undefined) {
+                
+                anchor_radio.value = curranchor;
+                return;
+            }
+            if (!anchor_radio.value) return;
+
+            let index_ = listdata.indexOf(anchor_radio.value);
+            if (index_ <= 0) return;
+
+
+            let toptemp = getRelativeTop(anchor_radio.value) - document.documentElement.scrollTop ;
+            if (toptemp < 0) return;
+            
+            anchor_radio.value = listdata[index_-1];
+
+        }
+        window?.addEventListener('scroll', function () {
+
+            findActiveHeading(anchor_list.value);
+
+        });
+
         let tools_data = await import("../assets/book/tools/index.json");
         if (tools_data && tools_data.default) {
             tools_directory_data.value = tools_data.default;
@@ -115,7 +153,7 @@ export default {
 
             }
         }
-        
+
         //mdpreview
 
     }
