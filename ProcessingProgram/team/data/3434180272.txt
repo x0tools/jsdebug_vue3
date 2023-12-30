@@ -1,0 +1,26 @@
+{
+  "avatar_url": "https://q4.qlogo.cn/g?b=qq&nk=3434180272&s=140",
+  "sex": true,
+  "age": 18,
+  "name": "Cramps",
+  "introduction": "不会唱歌的上单不是一个好程序员",
+  "contacts": [
+    {
+      "name": "QQ",
+      "url": "tencent://Message/?uin=3434180272"
+    },
+    {
+      "name": "TG",
+      "url": "https://t.me/Tongjingcheng7981"
+    }
+  ],
+  "project_link": [
+   
+  ],
+  "field": [
+    "JS逆向",
+    "PC软件开发",
+    "QQ",
+    "唱歌"
+  ]
+}

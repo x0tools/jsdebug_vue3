@@ -1,0 +1,28 @@
+{
+  "avatar_url": "https://q4.qlogo.cn/g?b=qq&nk=33150147&s=140",
+  "sex": true,
+  "age": 26,
+  "name": "城南花已开",
+  "introduction": "永远相信最美好的事，即将发生！",
+  "contacts": [
+    {
+      "name": "QQ",
+      "url": "tencent://Message/?uin=33150147"
+    },
+    {
+      "name": "TG",
+      "url": "https://t.me/by_ajian"
+    }
+  ],
+  "project_link": [
+    {
+      "name": "城南Post助手",
+      "url": "https://tool.8a55.com/"
+    }
+  ],
+  "field": [
+    "摸鱼",
+    "钓鱼",
+    "撩妹"
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "avatar_url": "https://q4.qlogo.cn/g?b=qq&nk=10512&s=140",
+  "sex": true,
+  "age": 35,
+  "name": "阿布",
+  "introduction": "略懂js。",
+  "contacts": [
+    {
+      "name": "QQ",
+      "url": "tencent://Message/?uin=10512"
+    },
+    {
+      "name": "TG",
+      "url": "https://t.me/ChrisYP"
+    }
+  ],
+  "project_link": [
+    {
+      "name": "NoCaptcha Solver",
+      "url": "https://github.com/ChrisYP/ChrisYP.github.io"
+    }
+  ],
+  "field": [
+    "简单的JS逆向"
+  ]
+}

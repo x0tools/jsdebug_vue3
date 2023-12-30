@@ -1,0 +1,32 @@
+{
+  "avatar_url": "https://q4.qlogo.cn/g?b=qq&nk=1027663760&s=140",
+  "sex": true,
+  "age": 24,
+  "name": "Ling",
+  "introduction": "11年软件独立开发经验",
+  "contacts": [
+    {
+      "name": "QQ",
+      "url": "tencent://Message/?uin=1027663760"
+    },
+    {
+      "name": "TG",
+      "url": "https://t.me/xxx65536"
+    }
+  ],
+  "project_link": [
+    {
+      "name":"B站主页",
+      "url":"https://space.bilibili.com/261216869"
+    },
+    {
+      "name": "凌哥E编程模块 - 用心打造专业的易语言编程通用模块",
+      "url": "https://www.1027663760.com/"
+    }
+  ],
+  "field": [
+    "易语言高性能程序设计",
+    "Ai深度学习目标检测",
+    "软件BUG修复"
+  ]
+}

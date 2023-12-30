@@ -1,0 +1,29 @@
+{
+  "avatar_url": "https://bbs.125.la/uc_server/data/avatar/000/22/41/28_avatar_middle.jpg",
+  "sex": true,
+  "age": 25,
+  "name": "小 强",
+  "introduction": "爱好装逼,找大佬抱大腿",
+  "contacts": [
+    {
+      "name": "QQ",
+      "url": "tencent://Message/?uin=99396686"
+    },
+    {
+      "name": "TG",
+      "url": "https://t.me/piteqiang"
+    }
+  ],
+  "project_link": [
+    {
+      "name": "wxPython可视化编辑器,可配套最新中文模块 TaoWa",
+      "url": "https://www.52pojie.cn/thread-1290699-1-1.html"
+    }
+  ],
+  "field": [
+    "易语言",
+    "Python",
+    "web3",
+    "POST"
+  ]
+}

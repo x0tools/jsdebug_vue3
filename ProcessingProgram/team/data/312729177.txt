@@ -1,0 +1,23 @@
+{
+  "avatar_url": "https://q4.qlogo.cn/g?b=qq&nk=312729177&s=140",
+  "sex": true,
+  "age": 29,
+  "name": "残少",
+  "introduction": "本人比较懒不想介绍",
+  "contacts": [
+    {
+      "name": "QQ",
+      "url": "tencent://Message/?uin=312729177"
+    },
+    {
+      "name": "TG",
+      "url": "https://t.me/vcatv5873"
+    }
+  ],
+  "project_link": [
+  
+  ],
+  "field": [
+    "JS前端安全"
+  ]
+}
