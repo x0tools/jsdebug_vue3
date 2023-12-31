@@ -42,7 +42,6 @@ import { MdPreview, MdCatalog } from 'md-editor-v3';
 import 'md-editor-v3/lib/preview.css';
 import { getRelativeTop } from "../utils/utils.js";
 
-import mdtext_test from "../assets/book/toolsbook.md?raw"
 const markDownTexts = import.meta.glob("../assets/book/tools/*/*.md", { as: 'raw' });
 const tools_directory_data = ref([]);
 const directory_radio = ref("");
