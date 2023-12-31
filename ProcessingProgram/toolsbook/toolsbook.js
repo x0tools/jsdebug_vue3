@@ -11,6 +11,8 @@ debugger;
 //遍历文件夹中的md文档生成对应的json文件
 function traverseDirectory(dirPath, jsonArray) {
     const files = fs.readdirSync(dirPath);
+
+    
     files.forEach((file) => {
         const filePath = path.join(dirPath, file);
         const fileStat = fs.statSync(filePath);
