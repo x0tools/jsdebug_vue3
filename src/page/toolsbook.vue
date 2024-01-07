@@ -4,18 +4,17 @@
             <el-space class="directory-sponsor" alignment="left" direction="vertical" :size="10">
                 <el-text>赞助商</el-text>
                 <a href="http://baidu.com" target="_blank">
-                    <img class="img-sponsor" src="http://element-plus.org/images/js-design-banner.jpg" alt="">
+                    <img class="img-sponsor" src="https://element-plus.org/images/js-design-banner.jpg" alt="">
                 </a>
                 <a href="http://baidu.com" target="_blank">
-                    <img class="img-sponsor" src="http://element-plus.org/images/vform-banner.png" alt="">
+                    <img class="img-sponsor" src="https://element-plus.org/images/vform-banner.png" alt="">
                 </a>
             </el-space>
 
             <div v-for="diritem in tools_directory_data" class="directory-body">
                 <p style="margin-bottom: 11px;"><b>{{ diritem.dirname }}</b></p>
                 <el-radio-group class="radio-group-body" @change="handleChange" v-model="directory_radio" size="large">
-                    <el-radio-button v-for="md in diritem.mds" class="radio-group-body-item" :label="md.filename">{{
-                        md.title }}</el-radio-button>
+                    <el-radio-button v-for="index in diritem.mds" class="radio-group-body-item" :label="`${diritem.ii}.${diritem.dirname}/${index}`">{{index}}</el-radio-button>
                 </el-radio-group>
             </div>
         </el-space>
@@ -36,7 +35,7 @@
     </div>
 </template>
 <script>
-
+// https://img.xsojson.com 图库使用这个
 import { ref, onMounted } from "vue";
 import { MdPreview, MdCatalog } from 'md-editor-v3';
 import 'md-editor-v3/lib/preview.css';
@@ -57,7 +56,7 @@ export default {
     setup() {
 
         async function handleChange(value) {
-            let mddatap = await markDownTexts[`../assets/book/tools/${value}`]();
+            let mddatap = await markDownTexts[`../assets/book/tools/${value}.md`]();
             mdtext.value = mddatap;
             console.log(value);
         }
@@ -144,13 +143,14 @@ export default {
         let tools_data = await import("../assets/book/tools/index.json");
         if (tools_data && tools_data.default) {
             tools_directory_data.value = tools_data.default;
-            let mdfilename = tools_data?.default?.[0]?.mds?.[0]?.filename;
-            let mdrname = tools_data?.default?.[0]?.dirname;
-            if (mdfilename && mdrname) {
+            let dirname =  tools_data?.default?.[0]?.dirname;
+            let mdname = tools_data?.default?.[0]?.mds?.[0];
+            let ii = tools_data?.default?.[0]?.ii;
+            let mdfilename = `${ii}.${dirname}/${mdname}`;
+            if (mdfilename ) {
                 directory_radio.value = mdfilename;
-                let mddatap = await markDownTexts[`../assets/book/tools/${mdfilename}`]();
+                let mddatap = await markDownTexts[`../assets/book/tools/${mdfilename}.md`]();
                 mdtext.value = mddatap;
-
             }
         }
     }
@@ -276,4 +276,5 @@ export default {
 
 }
 </style>
-      
+
+
