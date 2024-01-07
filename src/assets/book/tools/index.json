@@ -19,7 +19,9 @@
   {
     "dirname": "逆向",
     "ii": 3,
-    "mds": []
+    "mds": [
+      "v_jstools 浏览器插件"
+    ]
   },
   {
     "dirname": "其他",

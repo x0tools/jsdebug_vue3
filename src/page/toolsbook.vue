@@ -14,7 +14,8 @@
             <div v-for="diritem in tools_directory_data" class="directory-body">
                 <p style="margin-bottom: 11px;"><b>{{ diritem.dirname }}</b></p>
                 <el-radio-group class="radio-group-body" @change="handleChange" v-model="directory_radio" size="large">
-                    <el-radio-button v-for="index in diritem.mds" class="radio-group-body-item" :label="`${diritem.ii}.${diritem.dirname}/${index}`">{{index}}</el-radio-button>
+                    <el-radio-button v-for="index in diritem.mds" class="radio-group-body-item"
+                        :label="`${diritem.ii}.${diritem.dirname}/${index}`">{{ index }}</el-radio-button>
                 </el-radio-group>
             </div>
         </el-space>
@@ -28,7 +29,7 @@
         <el-scrollbar>
             <el-radio-group class="radio-group-body" @change="onAnchorPointOnClick" v-model="anchor_radio" size="large">
                 <el-radio-button v-for="item in anchor_list" class="radio-group-body-item" :label="item">
-                    {{ item.innerText }}
+                    {{ truncateText(item.innerText,15)}}
                 </el-radio-button>
             </el-radio-group>
         </el-scrollbar>
@@ -54,7 +55,12 @@ export default {
         MdPreview
     },
     setup() {
-
+        function truncateText(text, maxLength) {
+            if (text.length > maxLength) {
+                return text.substring(0, maxLength) + '...';
+            }
+            return text;
+        }
         async function handleChange(value) {
             let mddatap = await markDownTexts[`../assets/book/tools/${value}.md`]();
             mdtext.value = mddatap;
@@ -73,16 +79,16 @@ export default {
                 let ellistdata = [];
                 nodelistdata.forEach((x) => { ellistdata.push(x) })
                 anchor_list.value = ellistdata;
-                if(ellistdata.length > 0){
+                if (ellistdata.length > 0) {
                     anchor_radio.value = ellistdata[0]
                 }
-                
+
 
             })
 
         }
         function onGetCatalog(catalog) {
-  
+
         }
         return {
             tools_directory_data,
@@ -95,12 +101,13 @@ export default {
             anchor_list,
             anchor_radio,
             onHtmlChanged,
+            truncateText
 
         }
     },
     async mounted() {
         function findActiveHeading(listdata) {
-          
+
             if (listdata.length === 0) {
                 return false;
             }
@@ -118,7 +125,7 @@ export default {
             });
             let curranchor = nonNegativeObjects[0];
             if (curranchor != undefined) {
-                
+
                 anchor_radio.value = curranchor;
                 return;
             }
@@ -128,10 +135,10 @@ export default {
             if (index_ <= 0) return;
 
 
-            let toptemp = getRelativeTop(anchor_radio.value) - document.documentElement.scrollTop ;
+            let toptemp = getRelativeTop(anchor_radio.value) - document.documentElement.scrollTop;
             if (toptemp < 0) return;
-            
-            anchor_radio.value = listdata[index_-1];
+
+            anchor_radio.value = listdata[index_ - 1];
 
         }
         window?.addEventListener('scroll', function () {
@@ -143,11 +150,11 @@ export default {
         let tools_data = await import("../assets/book/tools/index.json");
         if (tools_data && tools_data.default) {
             tools_directory_data.value = tools_data.default;
-            let dirname =  tools_data?.default?.[0]?.dirname;
+            let dirname = tools_data?.default?.[0]?.dirname;
             let mdname = tools_data?.default?.[0]?.mds?.[0];
             let ii = tools_data?.default?.[0]?.ii;
             let mdfilename = `${ii}.${dirname}/${mdname}`;
-            if (mdfilename ) {
+            if (mdfilename) {
                 directory_radio.value = mdfilename;
                 let mddatap = await markDownTexts[`../assets/book/tools/${mdfilename}.md`]();
                 mdtext.value = mddatap;
