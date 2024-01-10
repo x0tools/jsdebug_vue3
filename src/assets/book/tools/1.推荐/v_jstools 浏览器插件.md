@@ -6,7 +6,7 @@
 # 1 安装
 ## 1.1 解压插件文件夹
 
-到 https://github.com/cilame/v_jstools 地址下载文件然后解压。
+到<a href="https://github.com/cilame/v_jstools" target="_blank">https://github.com/cilame/v_jstools </a> 地址下载文件然后解压。
 
 ![下载文件](https://img.xsojson.com/file/d922809c75656d1b28fe3.jpg)
 
@@ -135,13 +135,13 @@ cookie 这块其实稍微特殊一点，且常用一点，所以我这里特别�
 
 # 支持作者
 
-这里是作者的星球 https://wx.zsxq.com/dweb2/index/group/15552845822482 愿意支持一下的可以支持一下。另外星球内提供了一个通用的 wx devtools 开启工具。无需任何依赖，就一个 exe 程序，开启后，在微信打开的情况下点击 inject 按钮就可以开启 devtools 了。
+这里是作者的星球<a href="https://wx.zsxq.com/dweb2/index/group/15552845822482" target="_blank">https://wx.zsxq.com/dweb2/index/group/15552845822482 </a>   愿意支持一下的可以支持一下。另外星球内提供了一个通用的 wx devtools 开启工具。无需任何依赖，就一个 exe 程序，开启后，在微信打开的情况下点击 inject 按钮就可以开启 devtools 了。
 
 另外注意，请在点击 inject 后 15秒内点开工具，因为 15秒后，该功能会自动修复 hook 的接口，防止内存扫描。
 
 <img src="https://img.xsojson.com/file/b2906eee31ea2f86f63d0.jpg" alt="open_wx_devtools" style="zoom:200%;" />
 
-工具地址 https://t.zsxq.com/16dLGegqc 。64位 wx devtools 通用开启工具。
+工具地址 <a href="https://t.zsxq.com/16dLGegqc" target="_blank">https://t.zsxq.com/16dLGegqc</a>  。64位 wx devtools 通用开启工具。
 
 ![wx工具](https://img.xsojson.com/file/feb1ff5f65f518b243ffe.jpg)
 
