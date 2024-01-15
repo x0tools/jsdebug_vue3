@@ -57,7 +57,7 @@
     "软件BUG修复"
   ]
 },{
-  "avatar_url": "https://s11.ax1x.com/2023/12/21/piTmRxJ.jpg",
+  "avatar_url": "https://q4.qlogo.cn/g?b=qq&nk=1031142014&s=140",
   "sex": true,
   "age": 27,
   "name": "山海",
@@ -153,6 +153,26 @@
   "field": [
     "易语言",
     "前端"
+  ]
+},{
+  "avatar_url": "https://q4.qlogo.cn/g?b=qq&nk=1213634685&s=140",
+  "sex": true,
+  "age": 25,
+  "name": "非 凡",
+  "introduction": "练习时常2年半的码农练习生",
+  "contacts": [
+    {
+      "name": "QQ",
+      "url": "tencent://Message/?uin=1213634685"
+    }
+  ],
+  "project_link": [
+    
+  ],
+  "field": [
+    "JS逆向",
+    "安卓逆向",
+	"协议开发"
   ]
 },{
   "avatar_url": "https://thirdqq.qlogo.cn/g?b=sdk&k=2EcGwtRCRz1yvaGibwicwlSQ&kti=ZYPNIAAAAAA&s=100&t=1670766142",

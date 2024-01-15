@@ -9,7 +9,7 @@ const __filenameNew = fileURLToPath(import.meta.url)
 // 获取当前文件所在的目录
 const __dirnameNew = path.dirname(__filenameNew)
 // 获取 teamDataPath 路径
-let teamDataPath = path.resolve(`${__dirnameNew}`,"./team/data/");
+let teamDataPath = path.resolve(`${__dirnameNew}`,"./data/");
 
 
 // 读取 teamDataPath 目录下的文件
@@ -30,5 +30,5 @@ dataAllText = dataAllText.substring(0,dataAllText.length-1);
 // 将 dataAllText 末尾加上括号
 dataAllText = dataAllText + "]";
 // 将 dataAllText 写入到当前文件所在的目录下的 dataAll.json 文件中
-fs.writeFileSync(path.resolve(`${__dirnameNew}`,`./team/dataAll.json`),dataAllText);
+fs.writeFileSync(path.resolve(`${__dirnameNew}`,`./dataAll.json`),dataAllText);
 
