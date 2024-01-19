@@ -25,7 +25,7 @@
                 学习资料
             </h4>
         </el-menu-item>
-        <el-menu-item class="header-item" index="debug">
+        <el-menu-item class="header-item" index="testlist">
             <h4 class="header-item-text">
                 练习靶场
             </h4>

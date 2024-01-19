@@ -177,12 +177,8 @@ export default {
 
 }
 
-.el-scrollbar__wrap {
-    width: 310px;
-}
-
-.el-scrollbar__view {
-    width: 310px;
+.directory-scrollbar .el-scrollbar__view {
+    width: 310px ;
 }
 
 .directory-scrollbar-body {

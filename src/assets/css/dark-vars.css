@@ -15,7 +15,7 @@ body {
   -moz-user-select: none; /* Firefox */
   -ms-user-select: none; /* IE10+ */
   user-select: none; /* Standard syntax */
-  overflow-y:scroll;/* 始终显示滚动条防止抖动 */
+  /* overflow-y:scroll;始终显示滚动条防止抖动 */
 }
 
 /* 自定义滚动条样式 */

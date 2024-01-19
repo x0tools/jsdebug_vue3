@@ -29,9 +29,14 @@ const routes = [
                 component: ()=>import(/*webpackChunkName:'home'*/ '../page/doc.vue')
             },
             {
-                path:"/debug",
-                name:"debug",
-                component: ()=>import(/*webpackChunkName:'home'*/ '../page/debug.vue')
+                path:"/testlist",
+                name:"testlist",
+                component: ()=>import(/*webpackChunkName:'home'*/ '../page/testlist.vue')
+            },
+            {
+                path:"/testitem",
+                name:"testitem",
+                component: ()=>import(/*webpackChunkName:'home'*/ '../page/testitem.vue')
             }
         ]
         
